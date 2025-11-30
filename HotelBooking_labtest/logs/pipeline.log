@@ -1,0 +1,125 @@
+2025-11-30 11:29:51,968 | INFO | __main__ | ========== PIPELINE STARTED ==========
+2025-11-30 11:29:52,002 | INFO | __main__ | Loading dataset
+2025-11-30 11:29:52,022 | INFO | dataloader | Loading dataset from Data/Hotel Reservations.csv
+2025-11-30 11:29:52,376 | INFO | dataloader | Dataset loaded successfully with shape (36275, 19)
+2025-11-30 11:29:52,379 | INFO | __main__ | Running EDA
+2025-11-30 11:29:52,385 | INFO | eda | EDA started
+2025-11-30 11:29:52,386 | INFO | eda | Generating dataset summary
+2025-11-30 11:29:52,407 | INFO | eda | Dataset Shape: (36275, 19)
+2025-11-30 11:29:52,489 | INFO | eda | Data Types:
+Booking_ID                               object
+no_of_adults                              int64
+no_of_children                            int64
+no_of_weekend_nights                      int64
+no_of_week_nights                         int64
+type_of_meal_plan                        object
+required_car_parking_space                int64
+room_type_reserved                       object
+lead_time                                 int64
+arrival_year                              int64
+arrival_month                             int64
+arrival_date                              int64
+market_segment_type                      object
+repeated_guest                            int64
+no_of_previous_cancellations              int64
+no_of_previous_bookings_not_canceled      int64
+avg_price_per_room                      float64
+no_of_special_requests                    int64
+booking_status                           object
+dtype: object
+2025-11-30 11:29:52,526 | INFO | eda | Missing Values:
+Booking_ID                              0
+no_of_adults                            0
+no_of_children                          0
+no_of_weekend_nights                    0
+no_of_week_nights                       0
+type_of_meal_plan                       0
+required_car_parking_space              0
+room_type_reserved                      0
+lead_time                               0
+arrival_year                            0
+arrival_month                           0
+arrival_date                            0
+market_segment_type                     0
+repeated_guest                          0
+no_of_previous_cancellations            0
+no_of_previous_bookings_not_canceled    0
+avg_price_per_room                      0
+no_of_special_requests                  0
+booking_status                          0
+dtype: int64
+2025-11-30 11:29:52,647 | INFO | eda | Duplicate Rows: 0
+2025-11-30 11:29:52,728 | INFO | eda | Dataset Info:
+None
+2025-11-30 11:29:52,976 | INFO | eda | Dataset summary saved to artifacts/eda/dataset_summary.csv
+2025-11-30 11:29:52,983 | INFO | eda | Generating numeric feature distributions
+2025-11-30 11:30:01,651 | INFO | eda | Numeric distributions saved to artifacts/eda/numeric_distributions.png
+2025-11-30 11:30:01,669 | INFO | eda | Generating booking status distribution
+2025-11-30 11:30:02,338 | INFO | eda | Target distribution saved to artifacts/eda/target_distribution.png
+2025-11-30 11:30:02,339 | INFO | eda | Generating correlation heatmap
+2025-11-30 11:30:04,053 | INFO | eda | Correlation heatmap saved to artifacts/eda/correlation_heatmap.png
+2025-11-30 11:30:04,078 | INFO | eda | Generating Lead Time vs Booking Status plot
+2025-11-30 11:30:04,885 | INFO | eda | Lead time pattern saved to artifacts/eda/leadtime_vs_status.png
+2025-11-30 11:30:04,903 | INFO | eda | Generating Price vs Booking Status plot
+2025-11-30 11:30:05,641 | INFO | eda | Price pattern saved to artifacts/eda/price_vs_status.png
+2025-11-30 11:30:05,659 | INFO | eda | Running automated data issue detection
+2025-11-30 11:30:05,734 | INFO | eda | Data issues logged to artifacts/eda/data_issues.txt
+2025-11-30 11:30:05,781 | INFO | eda | EDA completed successfully
+2025-11-30 11:30:05,830 | INFO | __main__ | Cleaning data
+2025-11-30 11:30:05,878 | INFO | clean | Starting data cleaning and type conversion
+2025-11-30 11:30:05,932 | INFO | clean | Dropped Booking_ID column
+2025-11-30 11:30:06,027 | INFO | clean | Removed 10275 duplicate rows
+2025-11-30 11:30:06,050 | INFO | clean | Numeric type conversion completed
+2025-11-30 11:30:06,116 | INFO | clean | Categorical type conversion completed
+2025-11-30 11:30:06,159 | INFO | clean | Arrival date converted to datetime
+2025-11-30 11:30:06,223 | INFO | clean | Missing value imputation completed
+2025-11-30 11:30:06,240 | INFO | clean | Data cleaning and type conversion finished successfully
+2025-11-30 11:30:06,274 | INFO | __main__ | Handling outliers
+2025-11-30 11:30:06,294 | INFO | clean | Starting outlier treatment
+2025-11-30 11:30:06,339 | INFO | clean | Outlier treatment completed
+2025-11-30 11:30:06,349 | INFO | __main__ | Feature engineering
+2025-11-30 11:30:06,364 | INFO | feature_engineering | Starting feature engineering
+2025-11-30 11:30:06,391 | INFO | feature_engineering | Feature engineering completed
+2025-11-30 11:30:06,423 | INFO | __main__ | Preparing target variable
+2025-11-30 11:30:06,445 | INFO | __main__ | Training models (LogReg, RandomForest, XGBoost)
+2025-11-30 11:30:06,466 | INFO | train | Starting model training with XGBoost
+2025-11-30 11:30:06,594 | INFO | train | Training model: logreg
+2025-11-30 11:30:13,211 | INFO | train | Training model: rf
+2025-11-30 11:31:44,790 | INFO | train | Training model: xgboost
+2025-11-30 11:31:55,768 | INFO | train | Starting XGBoost hyperparameter tuning
+2025-11-30 11:34:35,517 | INFO | train | Best XGBoost model saved to models/best_model.joblib
+2025-11-30 11:34:35,575 | INFO | __main__ | Evaluating best model
+2025-11-30 11:34:35,577 | INFO | evaluate | Evaluation started
+2025-11-30 11:34:35,584 | INFO | evaluate | Generating classification report
+2025-11-30 11:34:35,846 | INFO | evaluate | 
+              precision    recall  f1-score   support
+
+           0       0.92      0.85      0.88      3712
+           1       0.68      0.81      0.74      1488
+
+    accuracy                           0.84      5200
+   macro avg       0.80      0.83      0.81      5200
+weighted avg       0.85      0.84      0.84      5200
+
+2025-11-30 11:34:35,854 | INFO | evaluate | Plotting confusion matrix
+2025-11-30 11:34:38,339 | INFO | evaluate | Confusion matrix saved to artifacts/eval/confusion_matrix.png
+2025-11-30 11:34:38,340 | INFO | evaluate | Plotting ROC curve
+2025-11-30 11:34:39,731 | INFO | evaluate | ROC curve saved to artifacts/eval/roc_curve.png
+2025-11-30 11:34:39,732 | INFO | evaluate | Extracting feature importance from XGBoost
+2025-11-30 11:34:39,755 | INFO | evaluate | Feature importance saved to artifacts/eval/feature_importance.csv
+2025-11-30 11:34:40,798 | INFO | evaluate | Top feature importance plot saved to artifacts/eval/top_feature_importance.png
+2025-11-30 11:34:40,800 | INFO | evaluate | Top 10 Most Important Features:
+2025-11-30 11:34:40,849 | INFO | evaluate | 
+                           feature  importance
+16                    weekend_flag    0.056172
+34      market_segment_type_Online    0.052786
+586        lead_time_category_long    0.048380
+33     market_segment_type_Offline    0.031562
+12          no_of_special_requests    0.027814
+588       lead_time_category_short    0.019957
+19   type_of_meal_plan_Meal Plan 1    0.015140
+4       required_car_parking_space    0.014864
+5                        lead_time    0.010568
+32   market_segment_type_Corporate    0.009989
+2025-11-30 11:34:40,852 | INFO | evaluate | Evaluation completed successfully
+2025-11-30 11:34:40,854 | INFO | __main__ | ========== PIPELINE COMPLETED SUCCESSFULLY ==========
